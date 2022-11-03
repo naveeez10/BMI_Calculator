@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'constants.dart';
+import 'input_page.dart';
 class RoundIconButton extends StatelessWidget {
   IconData? icon;
+  final Function func;
+  RoundIconButton({this.icon, required this.func});
 
-  RoundIconButton({this.icon});
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
         onPressed: (){
+          func();
         },
         child: Icon(icon),
         shape: CircleBorder(),

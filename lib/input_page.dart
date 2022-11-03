@@ -15,9 +15,6 @@ enum Gender {
   female,
 }
 
-int height = 180;
-int weight = 60;
-
 class _InputPageState extends State<InputPage> {
   Color malecardcolor = inactiveCardcolor;
   Color femalecardcolor = inactiveCardcolor;
@@ -151,19 +148,64 @@ class _InputPageState extends State<InputPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        RoundIconButton(icon: FontAwesomeIcons.plus),
+                        RoundIconButton(icon: FontAwesomeIcons.plus,func: (){
+                          setState(() {
+                            weight++;
+                          });
+                        },),
                         SizedBox(width: 10,),
-                        RoundIconButton(icon: FontAwesomeIcons.minus)
+                        RoundIconButton(icon: FontAwesomeIcons.minus,func: (){
+                          setState(() {
+                            weight--;
+                          });
+                        },)
                       ],
                     )
                   ],
                 ),
               ),
-              Reusable(colour: activeCardcolor),
+              Reusable(
+                colour: activeCardcolor,
+                cardchild: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'AGE',
+                      style: labeltextstyle,
+                    ),
+                    Text(
+                      age.toString(),
+                      style:
+                      TextStyle(fontSize: 50, fontWeight: FontWeight.w900),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        RoundIconButton(icon: FontAwesomeIcons.plus,func: (){
+                          setState(() {
+                            age++;
+                          });
+                        },),
+                        SizedBox(width: 10,),
+                        RoundIconButton(icon: FontAwesomeIcons.minus,func: (){
+                          setState(() {
+                            age--;
+                          });
+                        },)
+                      ],
+                    )
+                  ],
+                ),
+              )
             ],
           )),
           Container(
             color: bottomcardcolor,
+            child: Center(child: Text("Calculate",style: TextStyle(
+              color: Colors.white,
+              fontSize: 30
+            ),)),
+            width: double.infinity,
             height: 80,
           )
         ],
