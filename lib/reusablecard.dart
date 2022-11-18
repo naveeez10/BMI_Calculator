@@ -3,7 +3,8 @@ class Reusable extends StatelessWidget {
 
   Color colour;
   Widget? cardchild;
-  Reusable({required this.colour,this.cardchild});
+  double? width;
+  Reusable({required this.colour,this.cardchild,this.width});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,7 +15,7 @@ class Reusable extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       // height: 200,
-      width: 170,
+      width : width,
     );
   }
 }

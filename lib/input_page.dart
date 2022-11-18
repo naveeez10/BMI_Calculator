@@ -4,6 +4,8 @@ import 'Iconcontent.dart';
 import 'reusablecard.dart';
 import 'constants.dart';
 import 'roundIconbutton.dart';
+import 'resultspage.dart';
+import 'bottombutton.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -54,6 +56,7 @@ class _InputPageState extends State<InputPage> {
                 });
               },
               child: Reusable(
+                width: 170,
                 colour: malecardcolor,
                 cardchild: IconContent(
                   gendicon: FontAwesomeIcons.mars,
@@ -68,6 +71,7 @@ class _InputPageState extends State<InputPage> {
                 });
               },
               child: Reusable(
+                width: 170,
                 colour: femalecardcolor,
                 cardchild: IconContent(
                     gendicon: FontAwesomeIcons.venus, label: 'FEMALE'),
@@ -78,6 +82,7 @@ class _InputPageState extends State<InputPage> {
             child: Container(
               width: double.infinity,
               child: Reusable(
+                  width: 170,
                   colour: activeCardcolor,
                   cardchild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -133,6 +138,7 @@ class _InputPageState extends State<InputPage> {
             children: [
               Reusable(
                 colour: activeCardcolor,
+                width: 170,
                 cardchild: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -166,6 +172,7 @@ class _InputPageState extends State<InputPage> {
               ),
               Reusable(
                 colour: activeCardcolor,
+                width: 170,
                 cardchild: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -199,17 +206,13 @@ class _InputPageState extends State<InputPage> {
               )
             ],
           )),
-          Container(
-            color: bottomcardcolor,
-            child: Center(child: Text("Calculate",style: TextStyle(
-              color: Colors.white,
-              fontSize: 30
-            ),)),
-            width: double.infinity,
-            height: 80,
-          )
+          BottomButton(onTap: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Resultspage()));
+          },txt: Text('CALCULATE',style: labeltextstyle,),)
         ],
       ),
     );
   }
 }
+
+
