@@ -6,7 +6,8 @@ import 'constants.dart';
 import 'roundIconbutton.dart';
 import 'resultspage.dart';
 import 'bottombutton.dart';
-
+import 'bmi_calc.dart';
+BmiCalculator calc = new BmiCalculator(height: height, weight: weight);
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -207,6 +208,9 @@ class _InputPageState extends State<InputPage> {
             ],
           )),
           BottomButton(onTap: (){
+            setState(() {
+              calc = new BmiCalculator(height: height, weight: weight);
+            });
             Navigator.push(context, MaterialPageRoute(builder: (context) => Resultspage()));
           },txt: Text('CALCULATE',style: labeltextstyle,),)
         ],

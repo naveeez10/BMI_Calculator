@@ -2,10 +2,18 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 import 'reusablecard.dart';
 import 'bottombutton.dart';
+import 'bmi_calc.dart';
+import 'input_page.dart';
 
-class Resultspage extends StatelessWidget {
+
+class Resultspage extends StatefulWidget {
   const Resultspage({Key? key}) : super(key: key);
 
+  @override
+  State<Resultspage> createState() => _ResultspageState();
+}
+
+class _ResultspageState extends State<Resultspage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,17 +31,17 @@ class Resultspage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Text(
-                  "Normal",
+                  calc.returnresult(),
                   textAlign: TextAlign.center,
                   style: resulttextstyle,
                 ),
                 Text(
-                  "18.3",
+                  calc.getbmi(),
                   textAlign: TextAlign.center,
                   style: BMItextstyle,
                 ),
                 Text(
-                  "Eat more bsdk",
+                  calc.returninterpretation(),
                   textAlign: TextAlign.center,
                   style: prestextstyle,
                 ),
